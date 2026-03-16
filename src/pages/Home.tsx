@@ -3,7 +3,11 @@ import { AnimatePresence } from 'motion/react';
 import Loader from '@/components/layout/Loader';
 import Navbar from '@/components/layout/Navbar';
 import ScrollProgress from '@/components/layout/ScrollProgress';
+import CustomCursor from '@/components/layout/CustomCursor';
+import BackgroundEffects from '@/components/layout/BackgroundEffects';
 import Hero from '@/components/sections/Hero';
+import Storytelling from '@/components/sections/Storytelling';
+import WebsiteBorn from '@/components/sections/WebsiteBorn';
 import About from '@/components/sections/About';
 import WhatIDo from '@/components/sections/WhatIDo';
 import ForWhom from '@/components/sections/ForWhom';
@@ -24,11 +28,15 @@ export default function Home() {
       
       {!isLoading && (
         <div className="relative bg-main-bg">
+          <CustomCursor />
+          <BackgroundEffects />
           <ScrollProgress />
           <Navbar />
           
-          <main>
+          <main className="relative z-10">
             <Hero />
+            <Storytelling />
+            <WebsiteBorn />
             <WhatIDo />
             <SitePreviews />
             <ForWhom />
