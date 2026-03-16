@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  /* Nova Paleta de Cores */
+  --color-deep-black: #0B0B0B;
+  --color-graphite: #1E1E1E;
+  --color-soft-white: #F5F5F5;
+  --color-tech-blue: #3B82F6;
+  --color-tech-blue-light: #60A5FA;
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+  --animate-blob: blob 7s infinite;
+}
+
+@utility animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-deep-black text-soft-white font-sans antialiased selection:bg-tech-blue/30;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-soft-white;
+  }
+
+  p {
+    @apply text-slate-400;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-4 bg-tech-blue hover:bg-tech-blue-light text-white font-medium rounded-full transition-all duration-300 shadow-lg hover:shadow-tech-blue/20 hover:scale-105 active:scale-95 flex items-center justify-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 bg-graphite hover:bg-slate-800 text-soft-white font-medium rounded-full border border-white/10 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center gap-2;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-24 md:py-32;
+  }
+
+  .card-glass {
+    @apply bg-graphite/50 backdrop-blur-xl border border-white/5 rounded-2xl p-8 transition-all duration-500 hover:border-tech-blue/30 hover:bg-graphite/70;
+  }
+}
