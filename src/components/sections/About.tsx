@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { User, Heart, Lightbulb } from 'lucide-react';
+import PremiumMedia from '@/components/ui/PremiumMedia';
 
 export default function About() {
   return (
@@ -10,25 +11,23 @@ export default function About() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative aspect-square max-w-md mx-auto lg:mx-0"
           >
             <div className="absolute inset-0 bg-tech-blue/10 blur-[80px] rounded-full animate-pulse" />
-            <div className="relative z-10 w-full h-full rounded-[2.5rem] overflow-hidden border border-light-gray shadow-2xl">
-              <img 
-                src="https://i.ibb.co/NnpqhYcL/Whats-App-Image-2026-03-16-at-14-29-13.jpg"
-                alt="João Vitor Trajano de Lima"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                referrerPolicy="no-referrer"
-              />
-            </div>
+            <PremiumMedia
+              src="https://i.ibb.co/NnpqhYcL/Whats-App-Image-2026-03-16-at-14-29-13.jpg"
+              alt="João Vitor Trajano de Lima"
+              containerClassName="relative z-10 w-full h-full rounded-[2.5rem] border border-light-gray shadow-2xl"
+              className="grayscale hover:grayscale-0 transition-all duration-700"
+            />
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-8"
           >
             <div>
@@ -36,6 +35,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                 className="inline-block px-4 py-1.5 bg-tech-blue/10 border border-tech-blue/20 rounded-full text-tech-blue text-xs font-bold tracking-widest uppercase mb-6"
               >
                 Sobre Mim
@@ -64,12 +64,16 @@ export default function About() {
                 { icon: Heart, label: 'Foco' },
                 { icon: Lightbulb, label: 'Inovação' }
               ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center lg:items-start text-center lg:text-left group">
+                <motion.div 
+                  key={i} 
+                  whileHover={{ y: -5 }}
+                  className="flex flex-col items-center lg:items-start text-center lg:text-left group"
+                >
                   <div className="w-12 h-12 bg-white border border-light-gray rounded-2xl flex items-center justify-center mb-4 shadow-sm group-hover:bg-tech-blue group-hover:text-white transition-all duration-300">
                     <item.icon className="w-6 h-6" />
                   </div>
                   <span className="text-dark-text font-bold text-xs uppercase tracking-wider">{item.label}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>

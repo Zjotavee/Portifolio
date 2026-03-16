@@ -19,14 +19,14 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Side: Headline */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="inline-flex items-center space-x-2 bg-tech-blue/10 border border-tech-blue/20 rounded-full px-4 py-2 mb-6"
             >
               <span className="w-2 h-2 rounded-full bg-tech-cyan animate-pulse" />
@@ -59,10 +59,11 @@ export default function Hero() {
 
           {/* Right Side: Video in Glass Card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, x: 50 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
-            className="relative"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ rotateY: -5, rotateX: 5 }}
+            className="relative perspective-1000"
           >
             <div className="bg-secondary-bg/50 backdrop-blur-xl border border-tech-gray rounded-[2.5rem] p-4 shadow-2xl shadow-tech-blue/10 relative z-10">
               <div className="aspect-video overflow-hidden rounded-[2rem]">

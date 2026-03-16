@@ -3,8 +3,7 @@ import { AnimatePresence } from 'motion/react';
 import Loader from '@/components/layout/Loader';
 import Navbar from '@/components/layout/Navbar';
 import ScrollProgress from '@/components/layout/ScrollProgress';
-import CustomCursor from '@/components/layout/CustomCursor';
-import BackgroundEffects from '@/components/layout/BackgroundEffects';
+import FuturisticBackground from '@/components/layout/FuturisticBackground';
 import Hero from '@/components/sections/Hero';
 import Storytelling from '@/components/sections/Storytelling';
 import WebsiteBorn from '@/components/sections/WebsiteBorn';
@@ -13,7 +12,7 @@ import WhatIDo from '@/components/sections/WhatIDo';
 import ForWhom from '@/components/sections/ForWhom';
 import Results from '@/components/sections/Results';
 import Process from '@/components/sections/Process';
-import SitePreviews from '@/components/sections/SitePreviews';
+import ProjectGallery3D from '@/components/sections/ProjectGallery3D';
 import Cta from '@/components/sections/Cta';
 import Footer from '@/components/layout/Footer';
 
@@ -28,8 +27,7 @@ export default function Home() {
       
       {!isLoading && (
         <div className="relative bg-main-bg">
-          <CustomCursor />
-          <BackgroundEffects />
+          <FuturisticBackground />
           <ScrollProgress />
           <Navbar />
           
@@ -38,7 +36,7 @@ export default function Home() {
             <Storytelling />
             <WebsiteBorn />
             <WhatIDo />
-            <SitePreviews />
+            <ProjectGallery3D />
             <ForWhom />
             <Results />
             <Process />
