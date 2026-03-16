@@ -45,17 +45,17 @@ export default function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'py-3 md:py-4 bg-deep-black/80 backdrop-blur-xl border-b border-white/5'
+          ? 'py-3 md:py-4 bg-white/80 backdrop-blur-xl border-b border-light-gray'
           : 'py-5 md:py-6 bg-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between">
         <Link 
           to="/" 
-          className="text-xl md:text-2xl font-bold font-display tracking-tighter text-white z-[60] relative group"
+          className="text-xl md:text-2xl font-bold font-display tracking-tighter text-dark-text z-[60] relative group"
           onClick={() => setIsMobileMenuOpen(false)}
         >
-          JOÃO<span className="text-tech-blue group-hover:text-tech-blue-light transition-colors">VITOR</span>
+          JOÃO<span className="text-tech-blue group-hover:text-tech-blue-hover transition-colors">VITOR</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -65,7 +65,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.path}
-                className="text-sm font-medium text-slate-300 hover:text-tech-blue transition-colors relative group"
+                className="text-sm font-semibold text-slate-600 hover:text-tech-blue transition-colors relative group"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-tech-blue transition-all duration-300 group-hover:w-full" />
@@ -74,7 +74,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-sm font-medium text-slate-300 hover:text-tech-blue transition-colors relative group"
+                className="text-sm font-semibold text-slate-600 hover:text-tech-blue transition-colors relative group"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-tech-blue transition-all duration-300 group-hover:w-full" />
@@ -83,7 +83,7 @@ export default function Navbar() {
           ))}
           <a
             href="/#contact"
-            className="px-6 py-2.5 bg-tech-blue hover:bg-tech-blue-light text-white text-sm font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-tech-blue/20 hover:scale-105 active:scale-95"
+            className="px-6 py-2.5 bg-tech-blue hover:bg-tech-blue-hover text-white text-sm font-bold rounded-full transition-all duration-300 shadow-lg shadow-tech-blue/20 hover:scale-105 active:scale-95"
           >
             Iniciar Projeto
           </a>
@@ -91,7 +91,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden z-[60] relative p-2 -mr-2 text-white bg-graphite/50 rounded-full border border-white/10"
+          className="md:hidden z-[60] relative p-2 -mr-2 text-dark-text bg-white/50 rounded-full border border-light-gray"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -107,9 +107,9 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '-100%' }}
             transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-50 bg-deep-black flex flex-col items-center justify-center px-6"
+            className="fixed inset-0 z-50 bg-white flex flex-col items-center justify-center px-6"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-tech-blue/10 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-tech-blue/5 to-transparent pointer-events-none" />
             
             <div className="flex flex-col items-center space-y-8 w-full max-w-sm">
               {navLinks.map((link, i) => (
@@ -124,7 +124,7 @@ export default function Navbar() {
                     <a
                       href={link.path}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="block w-full text-center py-4 text-3xl font-bold font-display tracking-tight text-white hover:text-tech-blue transition-colors border-b border-white/5"
+                      className="block w-full text-center py-4 text-3xl font-bold font-display tracking-tight text-dark-text hover:text-tech-blue transition-colors border-b border-light-gray"
                     >
                       {link.name}
                     </a>
@@ -132,7 +132,7 @@ export default function Navbar() {
                     <Link
                       to={link.path}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="block w-full text-center py-4 text-3xl font-bold font-display tracking-tight text-white hover:text-tech-blue transition-colors border-b border-white/5"
+                      className="block w-full text-center py-4 text-3xl font-bold font-display tracking-tight text-dark-text hover:text-tech-blue transition-colors border-b border-light-gray"
                     >
                       {link.name}
                     </Link>

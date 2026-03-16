@@ -26,7 +26,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-deep-black text-white"
+      className="fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-main-bg text-dark-text"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, y: '-100%' }}
       transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
@@ -36,12 +36,12 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="text-4xl md:text-6xl font-bold font-display tracking-tighter mb-8 group"
+          className="text-4xl md:text-6xl font-extrabold font-display tracking-tighter mb-8 group"
         >
           JOÃO<span className="text-tech-blue">VITOR</span>
         </motion.div>
         
-        <div className="w-64 h-[2px] bg-white/10 rounded-full overflow-hidden relative">
+        <div className="w-64 h-[2px] bg-light-gray rounded-full overflow-hidden relative">
           <motion.div
             className="absolute top-0 left-0 h-full bg-tech-blue"
             initial={{ width: '0%' }}
@@ -50,7 +50,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
           />
         </div>
         
-        <div className="mt-4 text-[10px] font-bold text-white/50 tracking-[0.3em] uppercase flex justify-between w-64">
+        <div className="mt-4 text-[10px] font-bold text-slate-400 tracking-[0.3em] uppercase flex justify-between w-64">
           <span>Iniciando</span>
           <span>{Math.round(progress)}%</span>
         </div>

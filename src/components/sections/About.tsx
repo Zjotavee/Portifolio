@@ -3,7 +3,7 @@ import { User, Heart, Lightbulb } from 'lucide-react';
 
 export default function About() {
   return (
-    <section id="about" className="bg-deep-black overflow-hidden">
+    <section id="about" className="bg-main-bg overflow-hidden py-24 md:py-32">
       <div className="section-container">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
@@ -13,8 +13,8 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="relative aspect-square max-w-md mx-auto lg:mx-0"
           >
-            <div className="absolute inset-0 bg-tech-blue/20 blur-[80px] rounded-full animate-pulse" />
-            <div className="relative z-10 w-full h-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+            <div className="absolute inset-0 bg-tech-blue/10 blur-[80px] rounded-full animate-pulse" />
+            <div className="relative z-10 w-full h-full rounded-[2.5rem] overflow-hidden border border-light-gray shadow-2xl">
               <img 
                 src="https://i.ibb.co/NnpqhYcL/Whats-App-Image-2026-03-16-at-14-29-13.jpg"
                 alt="João Vitor Trajano de Lima"
@@ -32,15 +32,21 @@ export default function About() {
             className="space-y-8"
           >
             <div>
-              <h2 className="text-tech-blue text-sm font-bold tracking-widest uppercase mb-4">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="inline-block px-4 py-1.5 bg-tech-blue/10 border border-tech-blue/20 rounded-full text-tech-blue text-xs font-bold tracking-widest uppercase mb-6"
+              >
                 Sobre Mim
-              </h2>
-              <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold font-display tracking-tighter text-white mb-6">
-                Meu nome é João Vitor Trajano de Lima.
+              </motion.div>
+              <h3 className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-display tracking-tighter text-dark-text mb-6">
+                João Vitor <br />
+                <span className="text-tech-blue">Trajano de Lima.</span>
               </h3>
             </div>
 
-            <div className="space-y-6 text-lg text-slate-400 leading-relaxed font-light">
+            <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-medium">
               <p>
                 Sou desenvolvedor de websites e designer especializado em experiência do usuário.
               </p>
@@ -48,32 +54,23 @@ export default function About() {
                 Meu trabalho é transformar ideias em websites modernos, claros e eficientes, que ajudam empresas a se posicionarem melhor na internet.
               </p>
               <p>
-                Acredito que um bom site precisa unir três coisas: <span className="text-white font-medium">design</span>, <span className="text-white font-medium">funcionalidade</span> e <span className="text-white font-medium">experiência do usuário</span>.
-              </p>
-              <p>
-                Quando esses elementos trabalham juntos, o resultado é um site que realmente representa o seu negócio.
+                Acredito que um bom site precisa unir três pilares: <span className="text-tech-blue font-bold">design</span>, <span className="text-tech-blue font-bold">funcionalidade</span> e <span className="text-tech-blue font-bold">experiência</span>.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8">
-              <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                <div className="w-10 h-10 bg-tech-blue/10 rounded-lg flex items-center justify-center mb-4">
-                  <User className="w-5 h-5 text-tech-blue" />
+              {[
+                { icon: User, label: 'Design' },
+                { icon: Heart, label: 'Foco' },
+                { icon: Lightbulb, label: 'Inovação' }
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col items-center lg:items-start text-center lg:text-left group">
+                  <div className="w-12 h-12 bg-white border border-light-gray rounded-2xl flex items-center justify-center mb-4 shadow-sm group-hover:bg-tech-blue group-hover:text-white transition-all duration-300">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <span className="text-dark-text font-bold text-xs uppercase tracking-wider">{item.label}</span>
                 </div>
-                <span className="text-white font-bold text-sm uppercase tracking-wider">Design</span>
-              </div>
-              <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                <div className="w-10 h-10 bg-tech-blue/10 rounded-lg flex items-center justify-center mb-4">
-                  <Heart className="w-5 h-5 text-tech-blue" />
-                </div>
-                <span className="text-white font-bold text-sm uppercase tracking-wider">Funcionalidade</span>
-              </div>
-              <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                <div className="w-10 h-10 bg-tech-blue/10 rounded-lg flex items-center justify-center mb-4">
-                  <Lightbulb className="w-5 h-5 text-tech-blue" />
-                </div>
-                <span className="text-white font-bold text-sm uppercase tracking-wider">Experiência</span>
-              </div>
+              ))}
             </div>
           </motion.div>
         </div>

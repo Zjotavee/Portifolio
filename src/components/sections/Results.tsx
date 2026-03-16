@@ -26,7 +26,7 @@ const results = [
 
 export default function Results() {
   return (
-    <section className="bg-deep-black relative overflow-hidden">
+    <section className="bg-main-bg relative overflow-hidden py-24 md:py-32">
       <div className="section-container relative z-10">
         <div className="text-center mb-16 md:mb-24">
           <motion.h2
@@ -42,13 +42,13 @@ export default function Results() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-6xl font-bold font-display tracking-tighter text-white"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-display tracking-tighter text-dark-text"
           >
             O que você recebe ao criar seu site comigo
           </motion.h3>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {results.map((result, index) => (
             <motion.div
               key={index}
@@ -56,12 +56,12 @@ export default function Results() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="p-8 bg-graphite/30 border border-white/5 rounded-3xl flex flex-col items-center text-center group hover:bg-graphite/50 transition-all"
+              className="p-10 bg-white border border-light-gray rounded-[2.5rem] flex flex-col items-center text-center group hover:shadow-2xl hover:shadow-tech-blue/5 transition-all duration-500"
             >
-              <div className="w-16 h-16 bg-tech-blue/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <result.icon className="w-8 h-8 text-tech-blue" />
+              <div className="w-20 h-20 bg-tech-blue/5 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-tech-blue group-hover:text-white transition-all duration-500">
+                <result.icon className="w-10 h-10 text-tech-blue group-hover:text-white transition-colors" />
               </div>
-              <h4 className="text-xl font-bold text-white leading-tight">
+              <h4 className="text-xl font-bold text-dark-text leading-tight group-hover:text-tech-blue transition-colors">
                 {result.title}
               </h4>
             </motion.div>

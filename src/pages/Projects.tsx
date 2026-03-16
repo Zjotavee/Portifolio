@@ -21,7 +21,7 @@ export default function Projects() {
   }, [projects, activeFilter]);
 
   return (
-    <div className="min-h-screen relative bg-deep-black">
+    <div className="min-h-screen relative bg-main-bg">
       <Navbar />
       
       <main className="pt-24 md:pt-32 pb-16 md:pb-24">
@@ -32,10 +32,10 @@ export default function Projects() {
             transition={{ duration: 0.8 }}
             className="mb-12 md:mb-16 text-center md:text-left"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold font-display tracking-tighter text-white mb-4 sm:mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold font-display tracking-tighter text-dark-text mb-4 sm:mb-6">
               Todos os <span className="text-tech-blue">Projetos</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto md:mx-0">
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto md:mx-0 font-medium">
               Uma visão completa dos websites e sistemas desenvolvidos, focados em performance, design e resultados.
             </p>
           </motion.div>
@@ -51,10 +51,10 @@ export default function Projects() {
               <button
                 key={tech}
                 onClick={() => setActiveFilter(tech)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
                   activeFilter === tech
-                    ? 'bg-tech-blue text-white shadow-lg shadow-tech-blue/20'
-                    : 'bg-graphite text-slate-400 border border-white/5 hover:border-white/10 hover:text-white'
+                    ? 'bg-tech-blue text-white shadow-lg shadow-tech-blue/20 scale-105'
+                    : 'bg-white text-slate-500 border border-light-gray hover:border-tech-blue/30 hover:text-tech-blue shadow-sm'
                 }`}
               >
                 {tech}
@@ -64,7 +64,7 @@ export default function Projects() {
 
           <motion.div 
             layout
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10"
           >
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project, index) => (
@@ -75,29 +75,29 @@ export default function Projects() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.4 }}
-                  className="group relative bg-graphite/40 rounded-3xl overflow-hidden border border-white/5 hover:border-tech-blue/30 transition-all duration-500"
+                  className="group relative bg-white rounded-[2.5rem] overflow-hidden border border-light-gray hover:shadow-2xl hover:shadow-tech-blue/5 transition-all duration-500"
                 >
                   <Link to={`/project/${project.id}`} className="block">
                     <div className="aspect-video overflow-hidden relative">
-                      <div className="absolute inset-0 bg-deep-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                       <img
                         src={project.imageUrl}
                         alt={project.title}
-                        className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+                        className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                         referrerPolicy="no-referrer"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-dark-text/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                     
-                    <div className="p-6 sm:p-8">
-                      <h3 className="text-xl sm:text-2xl font-bold font-display text-white mb-2 sm:mb-3 group-hover:text-tech-blue transition-colors">
+                    <div className="p-8">
+                      <h3 className="text-xl sm:text-2xl font-bold font-display text-dark-text mb-3 group-hover:text-tech-blue transition-colors">
                         {project.title}
                       </h3>
-                      <p className="text-sm sm:text-base text-slate-400 mb-4 sm:mb-6 line-clamp-2 leading-relaxed">
+                      <p className="text-sm sm:text-base text-slate-600 mb-6 line-clamp-2 leading-relaxed font-medium">
                         {project.shortDescription}
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.slice(0, 3).map(tech => (
-                          <span key={tech} className="px-3 py-1 text-[10px] sm:text-xs font-medium text-tech-blue bg-tech-blue/10 rounded-full border border-tech-blue/20">
+                          <span key={tech} className="px-3 py-1 text-[10px] sm:text-xs font-bold text-tech-blue bg-tech-blue/5 rounded-full border border-tech-blue/10">
                             {tech}
                           </span>
                         ))}

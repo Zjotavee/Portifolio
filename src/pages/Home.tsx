@@ -3,7 +3,6 @@ import { AnimatePresence } from 'motion/react';
 import Loader from '@/components/layout/Loader';
 import Navbar from '@/components/layout/Navbar';
 import ScrollProgress from '@/components/layout/ScrollProgress';
-import WebGLBackground from '@/components/layout/WebGLBackground';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 import WhatIDo from '@/components/sections/WhatIDo';
@@ -24,18 +23,17 @@ export default function Home() {
       </AnimatePresence>
       
       {!isLoading && (
-        <div className="relative">
+        <div className="relative bg-main-bg">
           <ScrollProgress />
-          <WebGLBackground />
           <Navbar />
           
           <main>
             <Hero />
             <WhatIDo />
+            <SitePreviews />
             <ForWhom />
             <Results />
             <Process />
-            <SitePreviews />
             <About />
             <Cta />
           </main>
